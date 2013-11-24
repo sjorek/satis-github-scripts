@@ -7,8 +7,8 @@ CURRENT_DIR=$( pwd )
 
 echo "SATIS         :" ${SATIS:=vendor/bin/satis}
 if [ ! -x ${SATIS} ]; then
-	echo "Please install this composer-package in development-mode, to"
-	echo "publish the satis repository to github's “gh-pages”-branch."
+	echo "Please install this composer-package in development-mode, to" >&2
+	echo "publish the satis repository to github's “gh-pages”-branch." >&2
 	exit 1
 fi
 
@@ -17,7 +17,7 @@ echo "TARGET_BRANCH :" ${TARGET_BRANCH:=${2:-gh-pages}}
 echo "GITHUB_URL    :" ${GITHUB_URL:=${3:-$(git config --get remote.${TARGET_REMOTE}.url | grep "github.com" )}}
 
 if [ -z "${GITHUB_URL}" ] ; then
-	echo "Please publish this composer-package to github first."
+	echo "Please publish this composer-package to github first." >&2
 	exit 1
 	# echo "GITHUB_USER   :" ${GITHUB_USER:=${4:-$(git config --get github.user)}}
 	# echo "GITHUB_REPO   :" ${GITHUB_REPO:=${5:-$(php -r '$parts=explode("/",json_decode(file_get_contents("composer.json"))->name); echo array_pop($parts);')}}

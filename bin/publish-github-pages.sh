@@ -1,5 +1,10 @@
-#!env bash
+#!/usr/bin/env bash
 set -e # Stop on the first failure that occurs
+
+if [ ! -x vendor/bin/satis ]; then
+	echo "Please install this package in development-mode if you want to publish satis to github-pages."
+	exit 1
+fi
 
 echo "TARGET_REMOTE :" ${TARGET_REMOTE:=${1:-origin}}
 echo "TARGET_BRANCH :" ${TARGET_BRANCH:=${2:-gh-pages}}

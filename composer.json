@@ -11,6 +11,10 @@
 	"require-dev" : {
 		"composer/satis" : "dev-master"
 	},
+	"repositories": [{
+		"type": "vcs",
+		"url": "git@github.com:sjorek/satis-github-scripts.git"
+	}],
 	"post-install-cmd" : [
 		"( [ -x bin/publish-github-pages.sh ] && bin/publish-github-pages.sh )"
 	],

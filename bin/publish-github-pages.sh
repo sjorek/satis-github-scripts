@@ -73,7 +73,9 @@ if [ ! -d "${SATIS_PATH}" ] ; then
 		if [[ $(git branch -a --no-color | grep " remotes/$TARGET_REMOTE/$TARGET_BRANCH") == "" ]]; then
 			echo "No '$TARGET_BRANCH' branch exists.  Creating one"
 			exec_git checkout --orphan $TARGET_BRANCH
-			exec_git rm --cached -r .
+			[ -e .gitignore ] && cp .gitignore .gitignore~
+			exec_git rm -r .
+			[ -e .gitignore~ ] && mv .gitignore~ .gitignore
 			[ -e .gitignore ] || touch .gitignore
 			exec_git add .gitignore
 			exec_git commit -m "created empty “gh-pages” branch"
@@ -108,7 +110,7 @@ else
 {
 	"name"                 : "${SATIS_NAME}",
 	"homepage"             : "${SATIS_URL}",
-	"output-dir"           : ".",
+	"output-dir"           : "${SATIS_PATH}",
 	"repositories"         : [],
 	"require-all"          : true,
 	"require-dependencies" : true,

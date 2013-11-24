@@ -28,6 +28,7 @@ code-snippet to your *composer.json*:
         …
     }
 
-Then install/update everything in development mode:
+To publish satis-repositories automatically to github's pages run `composer install` or
+`composer update` in development mode, ie:
 
-	php -dsuhosin.executor.include.whitelist=phar composer.phar install --dev -v
+    php -dsuhosin.executor.include.whitelist=phar composer.phar install --dev -v

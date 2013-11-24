@@ -1,0 +1,17 @@
+{
+	"name"                 : "sj/satis-github-scripts",
+	"homepage"             : "http://sjorek.github.io/satis-github-scripts",
+	"output-dir"           : ".git/satis",
+	"repositories"         : [{
+		"type"             : "vcs",
+		"url"              : "git@github.com:sjorek/satis-github-scripts.git"
+	}],
+	"require-all"          : true,
+	"require-dependencies" : true,
+	"archive"              : {
+		"directory"        : "archive",
+		"format"           : "zip",
+		"prefix-url"       : "/satis-github-scripts",
+		"skip-dev"         : true
+	}
+}

@@ -8,7 +8,7 @@
                 "source": {
                     "type": "git",
                     "url": "git@github.com:sjorek/satis-github-scripts.git",
-                    "reference": "9b45b188db225ee21e188f798408d481ce594134"
+                    "reference": "cc1603933b02986388c0390391ccdcea3a03dc5c"
                 },
                 "require": {
                     "php": ">=5.4"
@@ -16,7 +16,7 @@
                 "require-dev": {
                     "composer/satis": "dev-master"
                 },
-                "time": "2013-11-24 14:20:48",
+                "time": "2013-11-24 15:02:08",
                 "bin": [
                     "bin/satis-github-publisher.sh"
                 ],
@@ -28,10 +28,10 @@
                 },
                 "scripts": {
                     "post-install-cmd": [
-                        "bin/satis-github-publisher.sh"
+                        "[ -x vendor/bin/satis ] && bin/satis-github-publisher.sh"
                     ],
                     "post-update-cmd": [
-                        "bin/satis-github-publisher.sh"
+                        "[ -x vendor/bin/satis ] && bin/satis-github-publisher.sh"
                     ]
                 },
                 "license": [

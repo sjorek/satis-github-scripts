@@ -11,18 +11,19 @@
 	"require-dev" : {
 		"composer/satis" : "dev-master"
 	},
-	"repositories": [{
-		"type": "vcs",
-		"url": "git@github.com:sjorek/satis-github-scripts.git"
-	}],
+	"repositories" : [{
+			"type" : "vcs",
+			"url" : "git@github.com:sjorek/satis-github-scripts.git"
+		}
+	],
 	"post-install-cmd" : [
-		"( [ -x bin/publish-github-pages.sh ] && bin/publish-github-pages.sh )"
+		"bin/publish-github-pages.sh"
 	],
 	"post-update-cmd" : [
-		"( [ -x bin/publish-github-pages.sh ] && bin/publish-github-pages.sh )"
+		"bin/publish-github-pages.sh"
 	],
 	"minimum-stability" : "dev",
-	"license" : "GPL-3.0+",
+	"license" : "BSD-3-Clause-Clear",
 	"homepage" : "http://sjorek.github.io/satis-github-scripts",
 	"support" : {
 		"source" : "https://github.com/sjorek/satis-github-scripts"

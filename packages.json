@@ -1,6 +1,52 @@
 {
     "packages": {
         "sj/satis-github-scripts": {
+            "v0.0.1-alpha": {
+                "name": "sj/satis-github-scripts",
+                "version": "v0.0.1-alpha",
+                "version_normalized": "0.0.1.0-alpha",
+                "source": {
+                    "type": "git",
+                    "url": "git@github.com:sjorek/satis-github-scripts.git",
+                    "reference": "6362006ec331deca5d3b152c3ea9bb454c21d7a4"
+                },
+                "dist": {
+                    "type": "zip",
+                    "url": "http://sjorek.github.io/satis-github-scripts/archive/sj-satis-github-scripts-v0.0.1-alpha-277434.zip",
+                    "reference": "6362006ec331deca5d3b152c3ea9bb454c21d7a4",
+                    "shasum": "febb832e34e72973025d98ca76c816cf1953f5d4"
+                },
+                "require": {
+                    "composer/satis": "dev-master",
+                    "php": ">=5.4"
+                },
+                "time": "2013-11-24 17:35:39",
+                "bin": [
+                    "bin/satis-github-publisher.sh"
+                ],
+                "type": "library",
+                "installation-source": "source",
+                "autoload": {
+                    "psr-0": {
+                        "Sj": "src"
+                    }
+                },
+                "scripts": {
+                    "post-install-cmd": [
+                        "[ -x vendor/bin/satis ] && bin/satis-github-publisher.sh"
+                    ],
+                    "post-update-cmd": [
+                        "[ -x vendor/bin/satis ] && bin/satis-github-publisher.sh"
+                    ]
+                },
+                "license": [
+                    "BSD-3-Clause-Clear"
+                ],
+                "homepage": "http://sjorek.github.io/satis-github-scripts",
+                "support": {
+                    "source": "https://github.com/sjorek/satis-github-scripts"
+                }
+            },
             "dev-master": {
                 "name": "sj/satis-github-scripts",
                 "version": "dev-master",

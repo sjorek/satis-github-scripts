@@ -18,7 +18,7 @@ else
 	echo "GITHUB_REPO   :" ${GITHUB_REPO:=${5:-$(echo ${GITHUB_URL} | sed -e "s|^.*github\.com[:\/].*\/\(.*\)\.git$|\1|")}}
 fi
 
-echo "SATIS_ALIAS   :" ${SATIS_ALIAS:=${6:-satis}}
+echo "SATIS_NAME    :" ${SATIS_NAME:=${6:-$(php -r 'echo json_decode(file_get_contents("composer.json"))->name;')}}
 echo "SATIS_PATH    :" ${SATIS_PATH:=${7:-.git/satis}}
 echo "SATIS_FILE    :" ${SATIS_FILE:=${8:-satis.json}}
 echo "SATIS_URL     :" ${SATIS_URL:=${9:-$(php -r 'echo json_decode(file_get_contents("composer.json"))->homepage;')}}
@@ -138,7 +138,7 @@ echo ${SATIS_JSON}
 exec_git ls-files | grep -v -E "^(\\.gitignore|satis.json)$" | xargs rm -r
 
 # Run satis …
-php ${CURRENT_DIR}/vendor/bin/satis -vvv build satis.json
+( cd ${CURRENT_DIR} && php vendor/bin/satis -vvv build ${SATIS_PATH}/${SATIS_FILE} )
 
 # Do nothing unless we actually have changes
 if [[ $(git status -s) != "" ]]; then
@@ -147,6 +147,6 @@ if [[ $(git status -s) != "" ]]; then
 	exec_git push
 fi
 
-# Clean up state
 cd ${CURRENT_DIR}
+# Publish state
 exec_git push $TARGET_REMOTE $TARGET_BRANCH

@@ -1,12 +1,16 @@
 satis-github-scripts
 ====================
 
-Shell script helper~~s~~, useful to publish satis-repositories to github-pages.
+Shell script helper, useful to publish satis-repositories to github-pages.
 
-Adding the repository to *composer.json* and publish automatically:
+To publish satis-repositories automatically to github's pages add the following
+code-snippet to your *composer.json*:
 
     {
         …
+        "require-dev": {
+            "sj/satis-github-scripts": "dev-master",
+        },
         "repositories": [
             {
                 "type": "composer",

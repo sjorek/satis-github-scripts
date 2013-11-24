@@ -9,9 +9,7 @@
 	],
 	"name" : "sj/satis-github-scripts",
 	"require" : {
-		"php" : ">=5.4"
-	},
-	"require-dev" : {
+		"php" : ">=5.4",
 		"composer/satis" : "dev-master"
 	},
 	"repositories" : [{

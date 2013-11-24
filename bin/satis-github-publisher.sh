@@ -79,7 +79,7 @@ if [ ! -d "${SATIS_PATH}" ] ; then
 			echo "No '$TARGET_BRANCH' branch exists.  Creating one"
 			exec_git checkout --orphan $TARGET_BRANCH
 			[ -e .gitignore ] && cp .gitignore .gitignore~
-			exec_git rm -r .
+			exec_git rm -rf .
 			[ -e .gitignore~ ] && mv .gitignore~ .gitignore
 			[ -e .gitignore ] || touch .gitignore
 			exec_git add .gitignore

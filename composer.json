@@ -4,6 +4,9 @@
 			"Sj" : "src"
 		}
 	},
+	"bin" : [
+		"bin/satis-github-publisher.sh"
+	]
 	"name" : "sj/satis-github-scripts",
 	"require" : {
 		"php" : ">=5.4"
@@ -12,15 +15,16 @@
 		"composer/satis" : "dev-master"
 	},
 	"repositories" : [{
-		"type" : "composer",
-		"url" : "http://sjorek.github.io/satis-github-scripts"
-	}],
+			"type" : "composer",
+			"url" : "http://sjorek.github.io/satis-github-scripts"
+		}
+	],
 	"scripts" : {
 		"post-install-cmd" : [
-			"bin/publish-github-pages.sh"
+			"bin/satis-github-publisher.sh"
 		],
 		"post-update-cmd" : [
-			"bin/publish-github-pages.sh"
+			"bin/satis-github-publisher.sh"
 		]
 	},
 	"minimum-stability" : "dev",

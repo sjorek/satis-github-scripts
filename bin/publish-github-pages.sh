@@ -1,8 +1,14 @@
 #!/usr/bin/env bash
 set -e # Stop on the first failure that occurs
 
-if [ ! -x vendor/bin/satis ]; then
-	echo "Please install this package in development-mode if you want to publish satis to github-pages."
+CURRENT_BRANCH=$( git branch 2>/dev/null| sed -n '/^\*/s/^\* //p' )
+CURRENT_COMMIT=$( git rev-parse HEAD )
+CURRENT_DIR=$( pwd )
+
+echo "SATIS         :" ${SATIS:=vendor/bin/satis}
+if [ ! -x ${SATIS} ]; then
+	echo "Please install this composer-package in development-mode, to"
+	echo "publish the satis repository to github's “gh-pages”-branch."
 	exit 1
 fi
 
@@ -40,7 +46,8 @@ exec_git() {
 
 	set +e
 
-	# } Even though we wrap the arguments in quotes, bash is splitting on whitespace within.  Why?
+	# } Even though we wrap the arguments in quotes, bash is splitting on whitespace within.
+	# } Why? Do we have to escape whitespaces instead ?
 	result=$(eval git $args 2>&1)
 	status=$?
 	set -e
@@ -58,10 +65,6 @@ if [[ $( git status -s ) != "" ]]; then
 	echo "Please commit or stash your changes before publishing documentation to github!" >&2
 	exit 1
 fi
-
-CURRENT_BRANCH=$( git branch 2>/dev/null| sed -n '/^\*/s/^\* //p' )
-CURRENT_COMMIT=$( git rev-parse HEAD )
-CURRENT_DIR=$( pwd )
 
 if [ ! -d "${SATIS_PATH}" ] ; then
 
@@ -138,7 +141,7 @@ echo ${SATIS_JSON}
 exec_git ls-files | grep -v -E "^(\\.gitignore|satis.json)$" | xargs rm -r
 
 # Run satis …
-( cd ${CURRENT_DIR} && php vendor/bin/satis -vvv build ${SATIS_PATH}/${SATIS_FILE} )
+( cd ${CURRENT_DIR} && php ${SATIS} -vvv build ${SATIS_PATH}/${SATIS_FILE} )
 
 # Do nothing unless we actually have changes
 if [[ $(git status -s) != "" ]]; then

@@ -1,0 +1,17 @@
+{
+	"autoload" : {
+		"psr-0" : {
+			"Sj" : "src"
+		}
+	},
+	"name" : "sj/satis-github-scripts",
+	"require" : {
+		"php" : ">=5.4"
+	},
+	"minimum-stability" : "dev",
+	"license" : "GPL-3.0+",
+	"homepage" : "http://sjorek.github.io/satis-github-scripts",
+	"support" : {
+		"source" : "https://github.com/sjorek/satis-github-scripts"
+	}
+}

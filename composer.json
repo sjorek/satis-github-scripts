@@ -8,6 +8,15 @@
 	"require" : {
 		"php" : ">=5.4"
 	},
+	"require-dev" : {
+		"composer/satis" : "dev-master"
+	},
+	"post-install-cmd" : [
+		"( [ -x bin/publish-github-pages.sh ] && bin/publish-github-pages.sh )"
+	],
+	"post-update-cmd" : [
+		"( [ -x bin/publish-github-pages.sh ] && bin/publish-github-pages.sh )"
+	],
 	"minimum-stability" : "dev",
 	"license" : "GPL-3.0+",
 	"homepage" : "http://sjorek.github.io/satis-github-scripts",

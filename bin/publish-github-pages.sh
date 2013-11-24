@@ -17,8 +17,10 @@ echo "TARGET_BRANCH :" ${TARGET_BRANCH:=${2:-gh-pages}}
 echo "GITHUB_URL    :" ${GITHUB_URL:=${3:-$(git config --get remote.${TARGET_REMOTE}.url | grep "github.com" )}}
 
 if [ -z "${GITHUB_URL}" ] ; then
-	echo "GITHUB_USER   :" ${GITHUB_USER:=${4:-$(git config --get github.user)}}
-	echo "GITHUB_REPO   :" ${GITHUB_REPO:=${5:-$(php -r '$parts=explode("/",json_decode(file_get_contents("composer.json"))->name); echo array_pop($parts);')}}
+	echo "Please publish this composer-package to github first."
+	exit 1
+	# echo "GITHUB_USER   :" ${GITHUB_USER:=${4:-$(git config --get github.user)}}
+	# echo "GITHUB_REPO   :" ${GITHUB_REPO:=${5:-$(php -r '$parts=explode("/",json_decode(file_get_contents("composer.json"))->name); echo array_pop($parts);')}}
 else
 	echo "GITHUB_USER   :" ${GITHUB_USER:=${4:-$(echo ${GITHUB_URL} | sed -e "s|^.*github\.com[:\/]\(.*\)\/.*\.git$|\1|")}}
 	echo "GITHUB_REPO   :" ${GITHUB_REPO:=${5:-$(echo ${GITHUB_URL} | sed -e "s|^.*github\.com[:\/].*\/\(.*\)\.git$|\1|")}}
@@ -114,7 +116,10 @@ else
 	"name"                 : "${SATIS_NAME}",
 	"homepage"             : "${SATIS_URL}",
 	"output-dir"           : "${SATIS_PATH}",
-	"repositories"         : [],
+	"repositories"         : [{
+		"type"             : "vcs",
+		"url"              : "${GITHUB_URL}"
+	}],
 	"require-all"          : true,
 	"require-dependencies" : true,
 	"archive"              : {

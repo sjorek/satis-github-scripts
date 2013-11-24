@@ -16,12 +16,14 @@
 			"url" : "git@github.com:sjorek/satis-github-scripts.git"
 		}
 	],
-	"post-install-cmd" : [
-		"bin/publish-github-pages.sh"
-	],
-	"post-update-cmd" : [
-		"bin/publish-github-pages.sh"
-	],
+	"scripts" : {
+		"post-install-cmd" : [
+			"bin/publish-github-pages.sh"
+		],
+		"post-update-cmd" : [
+			"bin/publish-github-pages.sh"
+		]
+	},
 	"minimum-stability" : "dev",
 	"license" : "BSD-3-Clause-Clear",
 	"homepage" : "http://sjorek.github.io/satis-github-scripts",

@@ -64,7 +64,7 @@ exec_git() {
 }
 
 if [[ $( git status -s ) != "" ]]; then
-	echo "Please commit or stash your changes before publishing documentation to github!" >&2
+	echo "Please commit or stash your changes before publishing satis to github!" >&2
 	exit 1
 fi
 

@@ -1,0 +1,47 @@
+{
+    "packages": {
+        "sj/satis-github-scripts": {
+            "dev-master": {
+                "name": "sj/satis-github-scripts",
+                "version": "dev-master",
+                "version_normalized": "9999999-dev",
+                "source": {
+                    "type": "git",
+                    "url": "git@github.com:sjorek/satis-github-scripts.git",
+                    "reference": "9b45b188db225ee21e188f798408d481ce594134"
+                },
+                "require": {
+                    "php": ">=5.4"
+                },
+                "require-dev": {
+                    "composer/satis": "dev-master"
+                },
+                "time": "2013-11-24 14:20:48",
+                "bin": [
+                    "bin/satis-github-publisher.sh"
+                ],
+                "type": "library",
+                "autoload": {
+                    "psr-0": {
+                        "Sj": "src"
+                    }
+                },
+                "scripts": {
+                    "post-install-cmd": [
+                        "bin/satis-github-publisher.sh"
+                    ],
+                    "post-update-cmd": [
+                        "bin/satis-github-publisher.sh"
+                    ]
+                },
+                "license": [
+                    "BSD-3-Clause-Clear"
+                ],
+                "homepage": "http://sjorek.github.io/satis-github-scripts",
+                "support": {
+                    "source": "https://github.com/sjorek/satis-github-scripts"
+                }
+            }
+        }
+    }
+}

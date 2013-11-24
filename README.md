@@ -19,10 +19,10 @@ code-snippet to your *composer.json*:
         ],
         "scripts" : {
             "post-install-cmd" : [
-                "vendor/bin/satis-github-publisher.sh"
+                "[-x vendor/bin/satis-github-publisher.sh ] && vendor/bin/satis-github-publisher.sh"
             ],
             "post-update-cmd" : [
-                "vendor/bin/satis-github-publisher.sh"
+                "[-x vendor/bin/satis-github-publisher.sh ] && vendor/bin/satis-github-publisher.sh"
             ]
         }
         …

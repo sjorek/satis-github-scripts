@@ -21,10 +21,10 @@
 	],
 	"scripts" : {
 		"post-install-cmd" : [
-			"bin/satis-github-publisher.sh"
+			"[ -x vendor/bin/satis ] && bin/satis-github-publisher.sh"
 		],
 		"post-update-cmd" : [
-			"bin/satis-github-publisher.sh"
+			"[ -x vendor/bin/satis ] && bin/satis-github-publisher.sh"
 		]
 	},
 	"minimum-stability" : "dev",

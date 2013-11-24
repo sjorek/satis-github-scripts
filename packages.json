@@ -8,13 +8,13 @@
                 "source": {
                     "type": "git",
                     "url": "git@github.com:sjorek/satis-github-scripts.git",
-                    "reference": "6d4cadca8f5042ae8d620a9b9a313a05d7f93f36"
+                    "reference": "f9bf1ec814240911c64ae0b144741917993a6f43"
                 },
                 "require": {
                     "composer/satis": "dev-master",
                     "php": ">=5.4"
                 },
-                "time": "2013-11-24 15:06:28",
+                "time": "2013-11-24 15:22:18",
                 "bin": [
                     "bin/satis-github-publisher.sh"
                 ],

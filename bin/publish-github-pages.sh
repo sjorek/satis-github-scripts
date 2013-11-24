@@ -14,8 +14,8 @@ if [ -z "${GITHUB_URL}" ] ; then
 	echo "GITHUB_USER   :" ${GITHUB_USER:=${4:-$(git config --get github.user)}}
 	echo "GITHUB_REPO   :" ${GITHUB_REPO:=${5:-$(php -r '$parts=explode("/",json_decode(file_get_contents("composer.json"))->name); echo array_pop($parts);')}}
 else
-	echo "GITHUB_USER   :" ${GITHUB_USER:=${4:-$(echo ${GITHUB_URL} | sed -e "s/^.*github\\.com[:\\/]\([^\\/]+\)\/[^\/]+\\.git$/\1/")}}
-	echo "GITHUB_REPO   :" ${GITHUB_REPO:=${5:-$(echo ${GITHUB_URL} | sed -e "s/^.*github\\.com[:\\/][^\/]+\/\([^\\/]+\)\\.git$/\1/")}}
+	echo "GITHUB_USER   :" ${GITHUB_USER:=${4:-$(echo ${GITHUB_URL} | sed -e "s|^.*github\.com[:\/]\(.*\)\/.*\.git$|\1|")}}
+	echo "GITHUB_REPO   :" ${GITHUB_REPO:=${5:-$(echo ${GITHUB_URL} | sed -e "s|^.*github\.com[:\/].*\/\(.*\)\.git$|\1|")}}
 fi
 
 echo "SATIS_ALIAS   :" ${SATIS_ALIAS:=${6:-satis}}

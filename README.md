@@ -27,3 +27,7 @@ code-snippet to your *composer.json*:
         }
         …
     }
+
+Then install/update everything in development mode:
+
+	php -dsuhosin.executor.include.whitelist=phar composer.phar install --dev -v

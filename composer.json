@@ -6,7 +6,7 @@
 	},
 	"bin" : [
 		"bin/satis-github-publisher.sh"
-	]
+	],
 	"name" : "sj/satis-github-scripts",
 	"require" : {
 		"php" : ">=5.4"

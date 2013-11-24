@@ -1,7 +1,7 @@
 satis-github-scripts
 ====================
 
-Shell script helper~s~, useful to publish satis-repositories to github-pages.
+Shell script helper~~s~~, useful to publish satis-repositories to github-pages.
 
 Adding the repository to *composer.json* and publish automatically:
 

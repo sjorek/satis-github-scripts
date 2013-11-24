@@ -12,10 +12,9 @@
 		"composer/satis" : "dev-master"
 	},
 	"repositories" : [{
-			"type" : "vcs",
-			"url" : "git@github.com:sjorek/satis-github-scripts.git"
-		}
-	],
+		"type" : "composer",
+		"url" : "http://sjorek.github.io/satis-github-scripts"
+	}],
 	"scripts" : {
 		"post-install-cmd" : [
 			"bin/publish-github-pages.sh"

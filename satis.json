@@ -4,7 +4,7 @@
 	"output-dir"           : ".git/satis",
 	"repositories"         : [{
 		"type"             : "vcs",
-		"url"              : "git@github.com:sjorek/satis-github-scripts.git"
+		"url"              : "git+ssh://git@github.com:sjorek/satis-github-scripts.git"
 	}],
 	"require-all"          : true,
 	"require-dependencies" : true,

@@ -34,13 +34,12 @@ fi
 
 echo "SATIS_URL     :" ${SATIS_URL:=${7:-$(php -r 'error_reporting(0); try { echo json_decode(file_get_contents("composer.json"))->homepage; } catch(Exception $e) {}')}}
 if [ -z "${SATIS_URL}" ] ; then
-	echo "Please add a homepage url in composer.json." >&2
-	exit 1
+	SATIS_URL="http://${GITHUB_USER}.github.io/${GITHUB_REPO}"
 fi
 
 echo "SATIS_PATH    :" ${SATIS_PATH:=${8:-.git/satis}}
 echo "SATIS_FILE    :" ${SATIS_FILE:=${9:-satis.json}}
-echo "SATIS_PREFIX  :" ${SATIS_PREFIX:=${10:-/${GITHUB_REPO}}}
+echo "SATIS_PREFIX  :" ${SATIS_PREFIX:=${10:-${SATIS_URL}}}
 
 # Git spits out status information on $stderr, and we don't want to relay that as an error to the
 # user.  So we wrap git and do error handling ourselves...
